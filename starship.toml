@@ -13,7 +13,8 @@ $nodejs\
 $c\
 $cpp\
 $rust\
-$java
+$java\
+$venv
 [╰─](fg:arrow)[󰁔](fg:arrow) $character\
 """
 
@@ -97,10 +98,16 @@ symbol = "󰏗 "
 format = 'via [󱃾 $context\($namespace\)](bold purple) '
 disabled = false
 
-# ---
+[python]
+symbol = ' '
 
 [rust]
-disabled = false
+symbol = " "
+
+[dart]
+symbol = " "
+
+# ---
 
 [java]
 disabled = false
@@ -111,9 +118,6 @@ disabled = false
 [cpp]
 disabled = false
 
-[dart]
-symbol = " "
-disabled = false
 
 [vagrant]
 disabled = true
@@ -122,9 +126,6 @@ disabled = true
 disabled = true
 
 [helm]
-disabled = true
-
-[python]
 disabled = true
 
 [nodejs]
