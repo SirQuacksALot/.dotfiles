@@ -1,0 +1,25 @@
+name: Taste of Purple # Name for the theme
+accent: '#A52AFF' # Accent color for UI elements
+cursor: '#95D886' # Input cursor color (optional; defaults to accent color if omitted)
+background: '#000000' # Terminal background color
+foreground: '#F1F1F1' # The foreground color
+details: darker # Whether the theme is lighter or darker
+terminal_colors: # Ansi escape colors
+  bright:
+    black: '#121212'
+    blue: '#2B4FFF'
+    cyan: '#28B9FF'
+    green: '#7129FF'
+    magenta: '#2883FF'
+    red: '#A52AFF'
+    white: '#F1F1F1'
+    yellow: '#3D2AFF'
+  normal:
+    black: '#121212'
+    blue: '#2B4FFF'
+    cyan: '#28B9FF'
+    green: '#7129FF'
+    magenta: '#2883FF'
+    red: '#A52AFF'
+    white: '#F1F1F1'
+    yellow: '#3D2AFF'
