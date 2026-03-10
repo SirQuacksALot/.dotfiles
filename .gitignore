@@ -15,4 +15,5 @@
 !fastfetch/
 !fastfetch/**
 
+!README.md
 !.gitignore
