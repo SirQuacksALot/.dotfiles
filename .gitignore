@@ -15,5 +15,8 @@
 !fastfetch/
 !fastfetch/**
 
+!assets/
+!assets/**
+
 !README.md
 !.gitignore
