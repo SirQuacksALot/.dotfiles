@@ -11,9 +11,14 @@
 </div>
 <br>
 
+> [!note]
+> This and will always be a work in progess projekt as this is from my main work system. I will not accept any PR's but may take a look at the content and may adapt my system.
+> 
+> Feel free to use my configs and tailor them to your neeeds.
+
 ##  **Content** - What in for the show?
 
-
+*...*
 
 ## **Showcase**
 
@@ -38,4 +43,8 @@
 
 ## **Todo list** - What is missing ?
 
-- [ ] GTK theming
+- [ ] Genralized theming
+  - [ ] GTK theming
+  - [ ] Wallapper switcher
+    - [ ] Theme changes based on wallpaper
+  - [ ] Theme switcher
