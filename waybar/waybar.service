@@ -1,0 +1,17 @@
+[Unit]
+Description=Waybar
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/bin/bash %h/.config/waybar/launch.sh
+ExecReload=/bin/kill -SIGUSR2 $MAINPID
+Restart=on-failure
+KillMode=mixed
+
+# Umgebungsvariablen aus der Hyprland-Session übernehmen
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+PassEnvironment=WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE DISPLAY DBUS_SESSION_BUS_ADDRESS PATH UWSM_FINALIZE_VARNAMES UWSM_WAIT_VARNAMES
+
+[Install]
+WantedBy=graphical-session.target

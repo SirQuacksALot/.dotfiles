@@ -1,0 +1,176 @@
+configuration {
+    modi:            "window,drun,ssh,filebrowser,vscode-recent,emoji";
+    show-icons:      true;
+    icon-theme:      "Papirus-Dark";
+    kb-cancel:       "Escape,Alt+F1";
+    drun-display-format: "{name}";
+}
+
+@import "colors.rasi"
+
+*{
+    background-color: transparent;
+    text-color:       var(fg0);
+    font:             "JetBrainsMono Nerd Font 9";
+}
+
+window {
+    width:            600px;
+    background-color: var(bg0);
+    border:           1px solid;
+    border-color:     var(border-col);
+    border-radius:    10px;
+    padding:          0;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+    spacing:          0;
+    padding:          0;
+}
+
+/* ── Search bar ─────────────────────────────────── */
+inputbar {
+    background-color: var(bg1);
+    border-radius:    0px;
+    border:           0px 0px 1px 0px solid;
+    border-color:     var(border-col);
+    padding:          10px 14px;
+    margin:           5px;
+    spacing:          8px;
+    children:         [ prompt, entry, num-filtered-rows, textbox-num-sep, num-rows ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       var(accent);
+}
+
+entry {
+    background-color:  transparent;
+    text-color:        var(fg0);
+    placeholder-color: var(fg2);
+    placeholder:       "Search applications…";
+    cursor:            text;
+    spacing:           0;
+}
+
+num-filtered-rows, num-rows {
+    expand:     false;
+    text-color: var(fg2);
+}
+
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: var(fg2);
+}
+
+case-indicator {
+    text-color: var(fg2);
+}
+
+/* ── Grid List ──────────────────────────────────── */
+listview {
+    background-color: transparent;
+    padding:          10px;
+    spacing:          6px;
+    scrollbar:        true;
+    fixed-height:     true;
+    lines:            4;
+    columns:          5;
+    border:           0;
+    flow:             horizontal;
+}
+
+scrollbar {
+    width: 0;
+}
+
+/* ── Elements ───────────────────────────────────── */
+element {
+    background-color: transparent;
+    padding:          10px 6px;
+    spacing:          4px;
+    border-radius:    5px;
+    cursor:           pointer;
+    border:           0;
+    orientation:      vertical;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             2.5em;
+    cursor:           inherit;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       var(fg1);
+    font:             "JetBrainsMono Nerd Font 9";
+    cursor:           inherit;
+    highlight:        bold rgba(241, 180, 205, 100%);
+    horizontal-align: 0.5;
+    vertical-align:   0;
+}
+
+/* Normal */
+element normal.normal {
+    background-color: transparent;
+    text-color:       var(fg1);
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color:       var(accent);
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color:       rgba(255, 69, 58, 100%);
+}
+
+/* Selected */
+element selected.normal {
+    background-color: rgba(137, 91, 244, 25%);
+    text-color:       var(fg0);
+}
+
+element selected.active {
+    background-color: var(accent);
+    text-color:       var(fg0);
+}
+
+element selected.urgent {
+    background-color: rgba(255, 69, 58, 100%);
+    text-color:       var(fg0);
+}
+
+/* Alternate */
+element alternate.normal {
+    background-color: transparent;
+    text-color:       var(fg1);
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color:       var(accent);
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color:       rgba(255, 69, 58, 100%);
+}
+
+/* ── Message ────────────────────────────────────── */
+message {
+    background-color: var(bg1);
+    border:           0;
+    padding:          8px 14px;
+}
+
+textbox {
+    text-color: var(fg1);
+}

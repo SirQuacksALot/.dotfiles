@@ -1,0 +1,10 @@
+[Unit]
+Description=Gobatmon Battery Monitor
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/gobatmon
+Restart=always
+
+[Install]
+WantedBy=default.target

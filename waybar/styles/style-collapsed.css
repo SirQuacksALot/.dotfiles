@@ -1,0 +1,13 @@
+window#waybar {
+    border-radius: 5px;
+    background: transparent;
+    border: none;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-out;
+}
+
+.modules-center {
+    border-radius: 50px;
+    background: #161616;
+    padding: 0px 5px;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-out;
+}

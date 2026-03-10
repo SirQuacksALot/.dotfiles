@@ -1,0 +1,222 @@
+@import "colors.rasi"
+
+configuration {
+    window-thumbnail: true;
+}
+
+* {
+    background-color: transparent;
+    text-color:       var(fg0);
+    font:             "JetBrainsMono Nerd Font 9";
+}
+
+window {
+    width:            800px;
+    background-color: var(bg0);
+    border:           1px solid;
+    border-color:     var(border-col);
+    border-radius:    5px;
+    padding:          6px;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ listview ];
+    spacing:          0;
+    padding:          0;
+}
+
+/* ── List ───────────────────────────────────────── */
+listview {
+    background-color: transparent;
+    padding:          4px;
+    spacing:          6px;
+    scrollbar:        false;
+    fixed-height:     false;
+    lines:            1;
+    columns:          8;
+    border:           0;
+    flow:             horizontal;
+}
+
+/* ── Elements ───────────────────────────────────── */
+element {
+    background-color: transparent;
+    padding:          8px 6px;
+    spacing:          6px;
+    border-radius:    5px;
+    cursor:           pointer;
+    border:           0;
+    orientation:      vertical;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             6em;
+    cursor:           inherit;
+    horizontal-align: 0.5;
+    border-radius:    3px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       var(fg1);
+    cursor:           inherit;
+    highlight:        bold rgba(241, 180, 205, 100%);
+    horizontal-align: 0.5;
+    vertical-align:   0;
+    expand:           false;
+}
+
+/* Normal */
+element normal.normal {
+    background-color: transparent;
+    text-color:       var(fg1);
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color:       var(accent);
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color:       rgba(255, 69, 58, 100%);
+}
+
+/* Selected */
+element selected.normal {
+    background-color: rgba(137, 91, 244, 25%);
+    text-color:       var(fg0);
+}
+
+element selected.active {
+    background-color: var(accent);
+    text-color:       var(fg0);
+}
+
+element selected.urgent {
+    background-color: rgba(255, 69, 58, 100%);
+    text-color:       var(fg0);
+}
+
+/* Alternate */
+element alternate.normal {
+    background-color: transparent;
+    text-color:       var(fg1);
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color:       var(accent);
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color:       rgba(255, 69, 58, 100%);
+}
+
+window {
+    width:            700px;
+    background-color: var(bg0);
+    border:           1px solid;
+    border-color:     var(border-col);
+    border-radius:    5px;
+    padding:          6px;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ listview ];
+    spacing:          0;
+    padding:          0;
+}
+
+/* ── List ───────────────────────────────────────── */
+listview {
+    background-color: transparent;
+    padding:          4px;
+    spacing:          2px;
+    scrollbar:        false;
+    fixed-height:     false;
+    lines:            1;
+    columns:          8;
+    border:           0;
+    flow:             horizontal;
+}
+
+/* ── Elements ───────────────────────────────────── */
+element {
+    background-color: transparent;
+    padding:          10px 8px;
+    spacing:          6px;
+    border-radius:    5px;
+    cursor:           pointer;
+    border:           0;
+    orientation:      vertical;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             2em;
+    cursor:           inherit;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       var(fg1);
+    cursor:           inherit;
+    highlight:        bold rgba(241, 180, 205, 100%);
+    horizontal-align: 0.5;
+    vertical-align:   0;
+    expand:           true;
+}
+
+/* Normal */
+element normal.normal {
+    background-color: transparent;
+    text-color:       var(fg1);
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color:       var(accent);
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color:       rgba(255, 69, 58, 100%);
+}
+
+/* Selected */
+element selected.normal {
+    background-color: rgba(137, 91, 244, 25%);
+    text-color:       var(fg0);
+}
+
+element selected.active {
+    background-color: var(accent);
+    text-color:       var(fg0);
+}
+
+element selected.urgent {
+    background-color: rgba(255, 69, 58, 100%);
+    text-color:       var(fg0);
+}
+
+/* Alternate */
+element alternate.normal {
+    background-color: transparent;
+    text-color:       var(fg1);
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color:       var(accent);
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color:       rgba(255, 69, 58, 100%);
+}

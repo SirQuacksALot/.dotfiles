@@ -1,0 +1,246 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0;
+}
+
+window#waybar {
+    background: #161616;
+    border: 1px solid #434a4c;
+    margin: 10px 300px;
+    transition: margin 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+window#waybar.expanded {
+    margin: 10px 20px;
+}
+
+tooltip {
+    background-color: #161616;
+    border: 1px solid #434a4c;
+}
+
+window#waybar.empty #window,
+._battery_hidden-drawer-item,
+._network_hidden-drawer-item {
+    margin: 0;
+    padding: 0;
+    /*background-color: #895BF4;*/
+}
+
+
+#tray,
+#clock,
+#window,
+#battery,
+#network,
+#backlight,
+#pulseaudio,
+#custom-lock,
+#custom-icon,
+#custom-pacman,
+#custom-reboot,
+#custom-logout,
+#idle_inhibitor,
+#custom-shutdown,
+#custom-tray_wrap,
+#power-profiles-daemon {
+    margin: 6px 3px 6px 3px;
+    padding: 0px 5px 0px 5px;
+}
+
+#workspaces {
+    margin: 6px 3px;
+}
+
+#workspaces button {
+    all: initial;
+    min-width: 0;
+    box-shadow: inset 0 -3px transparent;
+    /* Icon sizing fix */
+    padding: 0px 6px;
+    margin: 0px 3px;
+    color: #C6C6C6;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(137, 91, 244, 0.1);
+}
+
+#workspaces button.active {
+    box-shadow: inset 0 -1.3px #895BF4;
+    transition: box-shadow 0.5s ease, background 0.5s ease;
+}
+
+#workspaces button.urgent {
+    background-color: #e78a4e;
+}
+
+/* Left icon spaceing fix */
+#custom-lock {
+    margin-left: 0px;
+}
+
+/* Right icon spaceing fix */
+#custom-shutdown{
+    margin-right: 10px;
+}
+
+#battery.icon {
+    padding: 0px 12px;
+    padding-left: 5px;
+
+}
+
+#custom-lock,
+#custom-icon,
+#custom-reboot,
+#custom-logout{
+    padding: 0px 10px;
+    padding-left: 5px;
+}
+
+/* Icon sizing fix */
+#power-profiles-daemon {
+    padding: 0px 10px;
+    padding-left: 0px;
+}
+
+#power-profiles-daemon.performance{
+    color: #e78a4e;
+}
+
+#power-profiles-daemon.balanced{
+    color: #434a4c;
+}
+
+#power-profiles-daemon.power-saver{
+    color: #a9b665;
+}
+
+#clock {
+    /*background-color: #212121;
+    border: 1px solid #434a4c; */
+    color: #C6C6C6;
+}
+
+#custom-filler {
+    margin: 0;
+    padding: 0;
+    color: #434a4c;
+}
+
+#custom-pacman,
+#window,
+#custom-tray_wrap,
+#temperature,
+#network,
+#backlight,
+#custom-backlight_wrap,
+#custom-icon,
+#custom-reboot,
+#custom-logout,
+#custom-lock,
+#idle_inhibitor,
+#power-profiles-daemon,
+#pulseaudio {
+    color: #C6C6C6;
+}
+
+#custom-shutdown {
+    color: #c14a4a;
+}
+
+#cpu.critical,
+#memory.critical {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 3s;
+}
+
+#battery {
+    color: #a9b665;
+    transition: color 0.3s ease;
+}
+#battery.warning {
+    color: #c1874a;
+}
+
+#battery.charging,
+#battery.plugged {
+    padding: 0px 6px;
+    padding-right: 8px;
+}
+
+
+#battery.critical,
+#battery.urgent {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 3s;
+    border-radius: 3px;
+    color: #c14a4a
+}
+
+
+#pulseaudio-slider,
+#backlight-slider {
+    padding: 0 0 0 6px;
+    margin: 0;
+    margin-right: 12px;
+}
+#pulseaudio-slider slider, 
+#backlight-slider slider {
+    padding: 0;
+    margin: 0;
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough,
+#backlight-slider trough {
+    min-height: 5px;
+    min-width: 50px;
+    border-radius: 5px;
+    background: #434a4c;
+}
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+    border-radius: 5px;
+    background: #C6C6C6;
+}
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+    border-radius: 3px;
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
+}
+
+@keyframes blink-update {
+	to {
+		background-color: dodgerblue;
+	}
+}
+
+@keyframes blink-critical {
+	to {
+		background-color: #951f1f;
+	}
+}

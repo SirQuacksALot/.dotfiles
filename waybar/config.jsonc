@@ -1,0 +1,290 @@
+{
+  "layer": "top",
+  "output": "eDP-1",
+  // "output": "DP-2", // Display Zuhause
+  // "output": "DP-3", // Display Büro (single)
+  "margin-top": 5,
+  "margin-right": 5,
+  "margin-left": 5,
+
+  "modules-center": [
+    "group/control",
+    "clock",
+    "hyprland/window",
+    "hyprland/workspaces",
+    "group/_network",
+    "group/_audio",
+    "group/_backlight",
+    "group/_battery"
+  ],
+
+  "modules-right": [
+    "custom/empty",
+    "custom/pacman",
+    "custom/empty"
+  ],
+  
+  /* Clock */
+  "clock": {
+    "format": "{:%H:%M Uhr}",
+    "tooltip": false
+  },
+
+  /* Workspcaes */
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+        "": "",
+        "(.*)Discord(.*)": "Discord",
+        ".*@.*": "Terminal",
+        "(.*) - OSS": "Code",
+        "(.+) — (.+)": "$2",
+        "(.+) - (.+)": "$2",
+        "(.+) – (.+)": "$2"
+    },
+    "max-length": 15,
+    "separate-outputs": true
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "tooltip": false,
+    "format": "{icon}",
+    "persistent-workspaces": {
+		  "*": [ 1,2,3,4,5 ]
+    }
+  },
+
+  /* Battery Module */
+  "group/_battery": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "_battery_hidden-drawer-item",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "battery#icon",
+      "custom/filler",
+      "battery#text"
+    ]
+  },
+  "battery#icon": {
+    "format": "{icon} ",
+    "format-charging": "",
+    "format-plugged": "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "interval": 10,
+    "states": {
+      "warning": 40,
+      "critical": 20
+    },
+    "tooltip": false
+  },
+  "battery#text": {
+    "format": "{capacity}%",
+    "interval": 10,
+    "states": {
+      "warning": 40,
+      "critical": 20
+    },
+    "tooltip": false
+  },
+
+  /* Network Modul */
+  "group/_network": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "_network_hidden-drawer-item",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "network#icon",
+      "custom/filler",
+      "network#text"
+    ]
+  },
+  "network#icon": {
+    "format-wifi": "{icon} ",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-ethernet": " ",
+    "format-disconnected": "󰤮 ",
+    "interval": 10,
+    "tooltip": false
+  },
+  "network#text": {
+    "format-wifi": "{essid}",
+    "format-ethernet": "{ifname}",
+    "tooltip-format": "󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+    "interval": 10,
+    "tooltip": true
+  },
+
+  /* Display Backlight Modul */
+  "group/_backlight": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "hidden-drawer-item",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "backlight",
+      "backlight/slider"
+    ]
+  },
+  "backlight": {
+    "min": 1,
+    "max": 100,
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+    "scroll-step": 5
+  },
+  "backlight/slider": {
+    "min": 1,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+
+  /* Audio Modul */
+  "group/_audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "hidden-drawer-item",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "pulseaudio#icon",
+      "pulseaudio/slider"
+    ]
+  },
+  "pulseaudio#icon": {
+    "scroll-step": 5,
+    "max-volume": 100,
+    "format": "{icon}",
+    "format-mute": "",
+    "format-icons": [
+      "",
+      "",
+      " "
+    ],
+    "format-bluetooth": "󰂰",
+    "nospacing": 1,
+    "tooltip": false
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+
+  /* Control Module*/
+  "group/control": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "hidden-drawer-item",
+      "click-to-reveal": true,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/icon",
+      "custom/filler",
+      "custom/empty",
+      "power-profiles-daemon",
+      "idle_inhibitor",
+      "custom/empty",
+      "custom/filler",
+      "custom/empty",
+      "custom/lock",
+      "custom/logout",
+      "custom/reboot",
+      "custom/shutdown",
+      "custom/filler"
+    ]
+  },
+  "custom/icon": {
+    "format": "󰣇",
+    "tooltip": false
+  },
+  "custom/empty": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/filler": {
+    "format": "|",
+    "tooltip": false
+  },
+  "custom/logout": {
+    "format": "",
+    "tooltip-format": "Logout",
+    "on-click": "~/.config/waybar/scripts/power.sh logout"
+  },
+  "custom/shutdown": {
+    "format": "",
+    "tooltip-format": "Shutdown",
+    "on-click": "~/.config/waybar/scripts/power.sh poweroff"
+  },
+  "custom/reboot": {
+    "format": "",
+    "tooltip-format": "Reboot",
+    "on-click": "~/.config/waybar/scripts/power.sh reboot"
+  },
+  "custom/lock": {
+    "format": "",
+    "tooltip-format": "Lock Screen",
+    "on-click": "hyprlock"
+  },
+
+  "idle_inhibitor": {
+    "tooltip": true,
+    "tooltip-format-activated": "Idle_inhibitor active",
+    "tooltip-format-deactivated": "Idle_inhibitor not active",
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  /* System Update Indecator Modul*/
+  "custom/pacman": {
+    "format": "{icon}{0}",
+    "return-type": "json",
+    "format-icons": {
+      "pending-updates": " ",
+      "updated": "",
+      "default": "󱥸"
+    },
+    "exec-if": "which waybar-updates",
+    "exec": "~/.config/waybar/scripts/pacman-wrapper.sh"
+  }
+}

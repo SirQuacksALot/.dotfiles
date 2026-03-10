@@ -1,0 +1,189 @@
+/* base.css - gemeinsame Styles */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar.empty #window {
+    margin: 0;
+    padding: 0;
+}
+
+tooltip {
+    background-color: #161616;
+    border-radius: 50px;
+}
+tooltip label {
+  padding: 0px 10px;
+}
+
+#clock,
+#window,
+#battery,
+#network,
+#backlight,
+#pulseaudio,
+#custom-lock,
+#custom-icon,
+#custom-pacman,
+#custom-reboot,
+#custom-logout,
+#custom-shutdown,
+#custom-tray_wrap,
+#idle_inhibitor,
+#power-profiles-daemon {
+    margin: 5px;
+    padding: 0px 5px 0px 5px;
+}
+
+#workspaces {
+    margin: 5px 5px;
+}
+#workspaces button {
+    all: initial;
+    transition: box-shadow 0.2s ease-in-out, background 0.2s ease-in-out, padding 0.3s ease-out;
+    box-shadow: inset 0 -3px transparent;
+    /* Icon sizing fix */
+    padding: 5px 10px;
+    margin: 0px 1px;
+    border-radius: 50px;
+}
+#workspaces button:hover {
+    background: rgba(137, 91, 244, 0.1);
+    border-radius: 50px;
+}
+#workspaces button.urgent {
+    background-color: #e78a4e;
+}
+#workspaces button.active {
+    transition: box-shadow 0.5s ease-in-out, background 0.5s ease-in-out, padding 0.3s ease-out;
+    background: rgba(137, 91, 244, 0.25);
+    border-radius: 50px;
+    padding: 0px 15px;
+}
+
+#battery {
+    color: #a9b665;
+    transition: color 0.3s ease-in-out, padding 0.3s ease-out;
+}
+#battery.warning {
+    color: #c1874a;
+}
+#battery.charging,
+#battery.plugged {
+    padding: 0px 6px;
+    padding-right: 8px;
+}
+#battery.critical,
+#battery.urgent {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 3s;
+    border-radius: 3px;
+    color: #c14a4a
+}
+
+
+#pulseaudio-slider,
+#backlight-slider {
+    padding: 0 0 0 6px;
+    margin: 0;
+    margin-right: 12px;
+}
+#pulseaudio-slider slider, 
+#backlight-slider slider {
+    padding: 0;
+    margin: 0;
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough,
+#backlight-slider trough {
+    min-height: 5px;
+    min-width: 50px;
+    border-radius: 5px;
+    background: #434a4c;
+}
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+    border-radius: 5px;
+    background: #C6C6C6;
+}
+
+#custom-shutdown {
+    color: #c14a4a;
+}
+
+#custom-filler {
+    margin: 0;
+    padding: 0;
+    color: #434a4c;
+}
+
+#custom-shutdown {
+    padding-right: 10px;
+}
+
+#custom-lock,
+#power-profiles-daemon {
+    padding-left: 0px;
+}
+#power-profiles-daemon.performance{
+    color: #e78a4e;
+}
+#power-profiles-daemon.balanced{
+    color: #434a4c;
+}
+#power-profiles-daemon.power-saver{
+    color: #a9b665;
+}
+
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+    padding: 0px 10px;
+    border-radius: 50px;
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 1.5s;
+}
+
+@keyframes blink-update {
+	to {
+		background-color: rgba(30, 143, 255, 0.492);
+	}
+}
+
+@keyframes blink-critical {
+	to {
+		background-color: rgba(114, 16, 16, 0.713);
+	}
+}
+/* Mode: expanded */
+window#waybar {
+    border-radius: 5px;
+    background: #161616;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-out;
+}
+
+.modules-center {
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-out;
+}

@@ -1,0 +1,355 @@
+{
+    /* ------------------------------------------------
+     * General Settings
+     *
+     */
+
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
+    "width": 100,
+
+    "margin-top": 5,
+    "margin-right": 5,
+    "margin-bottom": 0,
+    "margin-left": 5,
+
+    /* ------------------------------------------------
+     * Widget orientation
+     *
+     */
+
+    "modules-left": [
+        "custom/empty",
+        "custom/empty"
+    ],
+
+    "modules-center": [
+        "clock",
+	    "group/icon",
+        "hyprland/workspaces",
+        "group/_battery",
+        "group/_network",
+	    "group/_backlight",
+        "group/_audio",
+        "group/_tray"
+    ],
+
+    "modules-right": [
+        "custom/empty",
+        "custom/empty",
+        "custom/empty"
+    ],
+
+    /* ------------------------------------------------
+     * Workspcaes Widget
+     *
+     */
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "󰷜 ",
+            "default": "󰍹 "
+        }
+    },
+
+    /* ------------------------------------------------
+     * Tray Widget
+     *
+     */
+
+    "group/_tray": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "hidden-drawer-item",
+            "click-to-reveal": true,
+            "transition-left-to-right": true
+        },
+        "modules": ["custom/tray_wrap", "tray"]
+    },
+
+    "custom/tray_wrap": {
+        "format": "󱊖",
+        "tooltip-format": "Open tray"
+    },
+
+    "tray": {
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    /* ------------------------------------------------
+     * Power Profiles Widget
+     *
+     */
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": " ",
+        "power-saver": " "
+      }
+    },
+
+    /* ------------------------------------------------
+     * Clock Widget
+     *
+     */
+
+    "clock": {
+        "format": "{:%H:%M Uhr}",
+        "tooltip": false
+    },
+
+    /* ------------------------------------------------
+     * Temperatur Widget
+     *
+     */
+
+    "temperature": {
+        "hwmon-path": "/sys/devices/platform/dell_smm_hwmon/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""],
+	    "interval": 10
+    },
+
+    /* ------------------------------------------------
+     * Cpu Widget
+     *
+     */
+
+    "cpu": {
+        "format": "{icon}  {usage}%",
+	    "format-icons": [""],
+        "interval": 10,
+        "states": {
+            "critical": 90
+        }
+    },
+
+    /* ------------------------------------------------
+     * Clock Widget
+     *
+     */
+
+    "memory": {
+        "format": "{icon}  {percentage}%",
+        "format-icons": [""],
+	    "interval": 10,
+        "states": {
+            "critical": 80
+        }
+    },
+
+    /* ------------------------------------------------
+     * Battery Widget
+     *
+     */
+    
+    "group/_battery": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "_battery_hidden-drawer-item",
+            "transition-left-to-right": true
+        },
+        "modules": ["battery#icon", "custom/filler", "battery#text"]
+    },
+
+    "battery#icon": {
+        "format": "{icon}",
+        "format-charging": " " ,
+        "format-plugged": " ",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+	    "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+
+    "battery#text": {
+        "format": "{capacity}% | {time} | {health}",
+	    "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+
+    /* ------------------------------------------------
+     * Network Widget
+     *
+     */
+
+    "group/_network": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "_network_hidden-drawer-item",
+            "transition-left-to-right": true
+        },
+        "modules": ["network#icon", "custom/filler", "network#text"]
+    },
+
+    "network#icon": {
+        "format-wifi" : "{icon} ",
+	    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": " ",
+        "format-disconnected" : "󰤮 ",
+        "interval": 10,
+        "tooltip": false
+    },
+
+    "network#text": {
+        "format-wifi" : "{essid} | 󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+        "format-ethernet": "󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+        "interval": 10,
+        "tooltip": false
+    },
+
+    /* ------------------------------------------------
+     * Display Backlight Widget
+     *
+     */
+
+    "group/_backlight": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "hidden-drawer-item",
+            "transition-left-to-right": true
+        },
+        "modules": ["backlight", "backlight/slider"]
+    },
+
+    "backlight": {
+        "min": 1,
+        "max": 100,
+        "format": "{icon} ",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "scroll-step": 5
+    },
+
+    "backlight/slider": {
+        "min": 1,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    /* ------------------------------------------------
+     * Audio Widget
+     *
+     */
+
+    "group/_audio": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "hidden-drawer-item",
+            "transition-left-to-right": true
+        },
+        "modules": ["pulseaudio#icon", "pulseaudio/slider"]
+    },
+
+    "pulseaudio#icon": {
+        "scroll-step": 5,
+        "max-volume": 100,
+        "format": "{icon}",
+        "format-mute": "󰖁",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "format-bluetooth": "󰂯 {icon}",
+        "nospacing": 1,
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 100,
+        "format": "a{percent}%",
+        "format-mute": "aa {volume}% aa",
+        "format-bluetooth": "a {volume}% a",
+        "nospacing": 1,
+        "tooltip": false
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    /* ------------------------------------------------
+     * System Icon Widget
+     *
+     */
+
+    "group/icon":{
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "hidden-drawer-item",
+            "click-to-reveal": true,
+            "transition-left-to-right": true
+        },
+        "modules": ["custom/icon", "custom/filler", "custom/empty", "custom/lock", "custom/logout", "custom/reboot", "custom/shutdown"]
+    },
+
+    "custom/icon": {
+        "format": " 󰣇 ",
+        "tooltip": false
+    },
+
+    "custom/empty": {
+        "format": " ",
+        "tooltip": false
+    },
+
+    "custom/filler": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    "custom/shutdown": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "hyprshutdown -p \"systemctl poweroff\""
+    },
+
+    "custom/reboot": {
+        "format": " 󰑓 ",
+        "tooltip": false,
+        "on-click": "hyprshutdown -p \"reboot\""
+    },
+
+    // TODO - uwsm stop stops hyprland entirly and hyprshutdown does gracefull shutdown. This is not a session logout
+    "custom/logout": {
+        "format": " 󰗽 ",
+        "tooltip": false,
+        "on-click": "hyprshutdown -p \"uwsm stop\""
+    },
+
+
+    "custom/lock": {
+        "format": " 󱅞 ",
+        "tooltip": false,
+        "on-click": "hyprlock"
+    }
+
+}
