@@ -1,7 +1,5 @@
 ![](assets/screenshot-2026-02-26_00-46-19.png)
 
-<br>
-<br>
 <div align="center">
 
 # Cachyos+Hyprland configurations
@@ -15,6 +13,8 @@
 > This and will always be a work in progess projekt as this is from my main work system. I will not accept any PR's but may take a look at the content and may adapt my system.
 > 
 > Feel free to use my configs and tailor them to your neeeds.
+
+<br>
 
 ##  **Content** - What in for the show?
 
