@@ -260,8 +260,8 @@
     "tooltip-format-deactivated": "Idle_inhibitor not active",
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": "󰒳",
+      "deactivated": "󰒲"
     }
   },
   "power-profiles-daemon": {
