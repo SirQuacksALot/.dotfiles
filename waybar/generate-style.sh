@@ -14,5 +14,5 @@ cat "$WAYBAR_DIR/styles/style-${MODE}.css" >> "$OUT"
 
 # Waybar reload
 if pgrep -x waybar > /dev/null; then
-    pkill -SIGUSR2 waybar
+    systemctl --user reload waybar
 fi

@@ -42,6 +42,10 @@ tooltip label {
     padding: 0px 5px 0px 5px;
 }
 
+/*******************************************************************
+* Workspace Styling 
+*
+*/
 #workspaces {
     margin: 5px 5px;
 }
@@ -68,6 +72,10 @@ tooltip label {
     padding: 0px 15px;
 }
 
+/*******************************************************************
+* Battery Widget Styling 
+*
+*/
 #battery {
     color: #a9b665;
     transition: color 0.3s ease-in-out, padding 0.3s ease-out;
@@ -91,7 +99,10 @@ tooltip label {
     color: #c14a4a
 }
 
-
+/*******************************************************************
+* Audio with Slider Widget Styling 
+*
+*/
 #pulseaudio-slider,
 #backlight-slider {
     padding: 0 0 0 6px;
@@ -122,6 +133,10 @@ tooltip label {
     background: #C6C6C6;
 }
 
+/*******************************************************************
+* Custom Buttons Widget Styling 
+*
+*/
 #custom-shutdown {
     color: #c14a4a;
 }
@@ -144,13 +159,40 @@ tooltip label {
     color: #e78a4e;
 }
 #power-profiles-daemon.balanced{
-    color: #434a4c;
+    color: #7daea3;
 }
 #power-profiles-daemon.power-saver{
     color: #a9b665;
 }
 
+#custom-icon,
+#custom-lock,
+#custom-logout,
+#custom-reboot,
+#idle_inhibitor,
+#custom-shutdown,
+#power-profiles-daemon {
+    border-radius: 50px;
+    background: rgba(137, 91, 244, 0.0);   /* transparent als Basis */
+    transition: 0.3s ease-out, color 0.3s ease-in-out;
+}
 
+#custom-icon:hover,
+#custom-lock:hover,
+#custom-logout:hover,
+#custom-reboot:hover,
+#idle_inhibitor:hover,
+#custom-shutdown:hover,
+#power-profiles-daemon:hover {
+    padding: 0px 15px 0px 10px;
+    background: rgba(137, 91, 244, 0.1);
+    transition: 0.3s ease-out, color 0.3s ease-in-out;
+}
+
+/*******************************************************************
+* Package Info Widget Styling 
+*
+*/
 #custom-pacman {
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
@@ -163,6 +205,11 @@ tooltip label {
 	animation-duration: 1.5s;
 }
 
+
+/*******************************************************************
+* Keyframes 
+*
+*/
 @keyframes blink-update {
 	to {
 		background-color: rgba(30, 143, 255, 0.492);
