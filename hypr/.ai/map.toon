@@ -1,0 +1,18 @@
+hyprland.lua            -- main entry point (Lua, replaces hyprland.conf)
+hyprland.conf           -- legacy hyprlang (keep as backup, will be ignored if .lua exists)
+modules/
+  display_settings.lua  -- fallback monitor + xwayland
+  env_vars.lua          -- XCURSOR_SIZE, HYPRCURSOR_SIZE
+  programs.lua          -- global vars: terminal, fileManager, menu
+  auto_start.lua        -- exec-once / exec startup commands
+  input_devices.lua     -- keyboard, touchpad, gestures, device overrides
+  permissions.lua       -- screencopy/plugin permissions (commented out)
+  key_binds.lua         -- all keybindings
+  style.lua             -- look & feel: general, decoration, animations, dwindle, master, scrolling, misc
+  window_rules.lua      -- windowrule blocks
+  special_workspaces/
+    vesktop.lua         -- discord (vesktop) scratchpad
+    zen_browser.lua     -- zen browser scratchpad
+monitor-configs/        -- hmonitor managed display profiles
+scripts/                -- helper shell scripts
+.ai/                    -- project context (TOON format)

@@ -1,0 +1,10 @@
+PROJECT: SirQuacksALot's Hyprland Config
+STACK: Hyprland 0.55, Wayland, Lua config (migrating from hyprlang .conf)
+LAYOUT: scrolling (not dwindle/master)
+TERMINAL: alacritty
+BROWSER: zen-browser (special workspace)
+CHAT: vesktop (special workspace)
+MENU: rofi
+BAR: waybar
+MONITOR-TOOL: hmonitor daemon
+WM-EXTRAS: hyprpaper, hyprlock, hyprpicker, hyprpolkitagent, snappy-switcher
