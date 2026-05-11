@@ -1,5 +1,5 @@
 PROJECT: SirQuacksALot's Hyprland Config
-STACK: Hyprland 0.55, Wayland, Lua config (migrating from hyprlang .conf)
+STACK: Hyprland 0.55, Wayland, Lua config
 LAYOUT: scrolling (not dwindle/master)
 TERMINAL: alacritty
 BROWSER: zen-browser (special workspace)

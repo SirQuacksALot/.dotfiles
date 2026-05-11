@@ -1,8 +1,9 @@
 DONE: migrated all .conf modules to Lua (.lua) for Hyprland 0.55
 DONE: fixed togglesplit (removed, not supported in scrolling layout + removed in 0.55)
 DONE: fixed dwindle:pseudotile (removed, option dropped in 0.55)
-NOTE: hyprlang .conf files kept as backup — Hyprland 0.55 auto-detects hyprland.lua and ignores .conf
-NOTE: gesture API in Lua is uncertain — see input_devices.lua comment
-NOTE: some dispatcher APIs (movetoworkspace, fullscreen) are best-guess — verify with `hyprctl configerrors`
-TODO: remove .conf files once Lua config is confirmed working
+DONE: removed all legacy .conf files
+DONE: 3-finger gestures using native scroll_move (synchronous, 1:1 finger tracking)
+DONE: gestures:scrolling:move_snap_to_grid + move_snap_cursor configured
+NOTE: col.active_border gradient (F1B4CD → 895BF4 45deg) uses single color fallback — Lua gradient format unknown
+TODO: fix border gradient once Lua gradient API is documented
 TODO: consider porting monitor-configs/ profiles to Lua if hmonitor supports it
