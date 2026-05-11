@@ -17,13 +17,13 @@ fi
 
 case "$1" in
     logout)
-        hyprctl dispatch exec "hyprshutdown -t 'Logging out...' --post-cmd 'uwsm stop'"
+        hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Logging out...' --post-cmd 'uwsm stop'\")"
         ;;
     reboot)
-        hyprctl dispatch exec "hyprshutdown -t 'Rebooting...' --post-cmd 'systemctl reboot'"
+        hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Rebooting...' --post-cmd 'systemctl reboot'\")"
         ;;
     poweroff)
-        hyprctl dispatch exec "hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'"
+        hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'\")"
         ;;
     *)
         echo "Usage: $0 [logout|reboot|poweroff]"
