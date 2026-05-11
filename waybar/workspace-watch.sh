@@ -3,9 +3,6 @@
 WAYBAR_DIR="$HOME/.config/waybar"
 CURRENT_MODE="expanded"
 
-# Monitor auf dem Waybar läuft – anpassen mit: hyprctl monitors | grep Monitor
-WAYBAR_MONITOR=$(hyprctl layers -j | jq -r 'to_entries[] | select(.value.levels? | .. | objects | .namespace? == "waybar") | .key')
-
 log() {
     echo "[waybar-watcher] $1" >&2
 }
@@ -17,7 +14,6 @@ generate_style() {
 
 get_window_count() {
     local ws_id
-    # Nur den aktiven Workspace auf dem Waybar-Monitor abfragen, nicht global
     ws_id=$(hyprctl monitors -j | jq ".[] | select(.name == \"$WAYBAR_MONITOR\") | .activeWorkspace.id")
     if [[ -z "$ws_id" ]]; then
         log "WARN: Monitor '$WAYBAR_MONITOR' nicht gefunden, fallback auf activeworkspace"
@@ -26,13 +22,12 @@ get_window_count() {
     hyprctl clients -j | jq "[.[] | select(.workspace.id == $ws_id)] | length"
 }
 
-# Socket dynamisch finden
-SOCKET_PATH="${XDG_RUNTIME_DIR}/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock"
-
 if [[ -z "$HYPRLAND_INSTANCE_SIGNATURE" ]]; then
     log "ERROR: HYPRLAND_INSTANCE_SIGNATURE nicht gesetzt!"
     exit 1
 fi
+
+SOCKET_PATH="${XDG_RUNTIME_DIR}/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock"
 
 if [[ ! -S "$SOCKET_PATH" ]]; then
     log "ERROR: Socket nicht gefunden: $SOCKET_PATH"
@@ -40,6 +35,16 @@ if [[ ! -S "$SOCKET_PATH" ]]; then
 fi
 
 log "Verbinde mit Socket: $SOCKET_PATH"
+
+# Warte bis Waybar in den Layers erscheint (Race condition nach Start)
+WAYBAR_MONITOR=""
+for i in $(seq 1 15); do
+    WAYBAR_MONITOR=$(hyprctl layers -j | jq -r 'to_entries[] | select(.value.levels? | .. | objects | .namespace? == "waybar") | .key' 2>/dev/null | head -1)
+    [[ -n "$WAYBAR_MONITOR" ]] && break
+    log "Warte auf Waybar-Layer... ($i/15)"
+    sleep 1
+done
+
 if [[ -z "$WAYBAR_MONITOR" ]]; then
     log "ERROR: Waybar läuft nicht oder nicht als Client erkennbar!"
     exit 1

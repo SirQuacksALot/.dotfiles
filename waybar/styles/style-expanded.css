@@ -1,10 +1,18 @@
 window#waybar {
-    border-radius: 5px;
-    background: #161616;
+    background: transparent;
+    border-radius: 0;
 }
 
-.modules-center {
-    border: none;
+window#waybar > box {
+    background: #161616;
     border-radius: 5px;
+}
+
+.modules-center,
+.modules-left,
+.modules-right {
+    border: none;
     background: transparent;
+    border-radius: 0;
+    padding: 0;
 }

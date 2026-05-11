@@ -221,14 +221,15 @@ tooltip label {
 		background-color: rgba(114, 16, 16, 0.713);
 	}
 }
-/* Mode: expanded */
+/* Mode: collapsed */
 window#waybar {
     border-radius: 5px;
-    background: #161616;
+    background: transparent;
+    border: none;
 }
 
 .modules-center {
-    border: none;
-    border-radius: 5px;
-    background: transparent;
+    border-radius: 50px;
+    background: #161616;
+    padding: 0px 5px;
 }
