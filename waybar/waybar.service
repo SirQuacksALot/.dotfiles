@@ -11,6 +11,7 @@ KillMode=mixed
 
 # Umgebungsvariablen aus der Hyprland-Session übernehmen
 Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=WAYBAR_SOCKET=/run/user/1000/waybar.sock
 PassEnvironment=WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE DISPLAY DBUS_SESSION_BUS_ADDRESS PATH UWSM_FINALIZE_VARNAMES UWSM_WAIT_VARNAMES
 
 [Install]
