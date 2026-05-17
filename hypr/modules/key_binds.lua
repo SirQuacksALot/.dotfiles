@@ -18,13 +18,14 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + Q",           hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + C",           hl.dsp.window.close())
 hl.bind(mainMod .. " + M",           hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+hl.bind(mainMod .. " + X",            hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/powermenu.sh"))
 hl.bind(mainMod .. " + E",           hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + F",   hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R",           hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + R",   hl.dsp.exec_cmd("rofi -show emoji -modi emoji -emoji-format '{emoji}'"))
 hl.bind(mainMod .. " + P",           hl.dsp.window.pseudo())
 -- togglesplit removed in Hyprland 0.54+ and not applicable to scrolling layout
-hl.bind(mainMod .. " + F",           hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
+hl.bind(mainMod .. " + F",           hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + L",           hl.dsp.exec_cmd("hyprlock"))
 
 -- Alt+Tab window switcher
@@ -46,12 +47,12 @@ hl.bind(mainMod .. " + 0",           hl.dsp.focus({ workspace = 10 }))
 hl.bind(mainMod .. " + SHIFT + 0",   hl.dsp.exec_cmd("hyprctl dispatch movetoworkspace 10"))
 
 -- Cycle adjacent workspaces
-hl.bind(mainMod .. " + CTRL + right",       hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + CTRL + left",        hl.dsp.focus({ workspace = "-1" }))
+hl.bind(mainMod .. " + CTRL + right",       hl.dsp.focus({ workspace = "r+1" }))
+hl.bind(mainMod .. " + CTRL + left",        hl.dsp.focus({ workspace = "r-1" }))
 
 -- Move active window to adjacent workspace
-hl.bind(mainMod .. " + CTRL + ALT + right", hl.dsp.exec_cmd("hyprctl dispatch movetoworkspace +1"))
-hl.bind(mainMod .. " + CTRL + ALT + left",  hl.dsp.exec_cmd("hyprctl dispatch movetoworkspace -1"))
+hl.bind(mainMod .. " + CTRL + ALT + right", hl.dsp.window.move({ workspace = "r+1" }))
+hl.bind(mainMod .. " + CTRL + ALT + left",  hl.dsp.window.move({ workspace = "r-1" }))
 
 -- Special workspace (scratchpad)
 hl.bind(mainMod .. " + S",           hl.dsp.workspace.toggle_special("magic"))
@@ -81,6 +82,15 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),    { locked = t
 
 -- Hyprpicker
 hl.bind(mainMod .. " + SHIFT + P",   hl.dsp.exec_cmd("hyprpicker -a"))
+
+-- Notification center
+hl.bind(mainMod .. " + N",           hl.dsp.exec_cmd("swaync-client -t"))
+
+-- Wallpaper picker
+hl.bind(mainMod .. " + W",           hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/wallpaper-picker.sh"))
+
+-- Quick toggles
+hl.bind(mainMod .. " + T",           hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/quicktoggles.sh"))
 
 -- Screenshot
 hl.bind(mainMod .. " + ALT + S",     hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/hyprshot.sh"))
