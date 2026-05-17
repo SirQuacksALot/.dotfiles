@@ -1,5 +1,5 @@
 {
-  "layer": "top",
+  "layer": "bottom",
   "output": "eDP-1",
   // "output": "DP-2", // Display Zuhause
   // "output": "DP-3", // Display Büro (single)
@@ -8,7 +8,6 @@
   "margin-left": 5,
 
   "modules-center": [
-    "group/control",
     "clock",
     "hyprland/window",
     "hyprland/workspaces",
@@ -120,8 +119,8 @@
       "󰤥",
       "󰤨"
     ],
-    "format-ethernet": " ",
-    "format-disconnected": "󰤮 ",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
     "interval": 10,
     "tooltip": false
   },
@@ -153,7 +152,7 @@
     "format-icons": [
       "",
       "",
-      ""
+      "󰖨"
     ],
     "scroll-step": 5
   },
@@ -194,85 +193,6 @@
     "min": 0,
     "max": 100,
     "orientation": "horizontal"
-  },
-
-  /* Control Module*/
-  "group/control": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "hidden-drawer-item",
-      "click-to-reveal": true,
-      "transition-left-to-right": true
-    },
-    "modules": [
-      "custom/icon",
-      "custom/filler",
-      "custom/empty",
-      "power-profiles-daemon",
-      "idle_inhibitor",
-      "custom/empty",
-      "custom/filler",
-      "custom/empty",
-      "custom/lock",
-      "custom/logout",
-      "custom/reboot",
-      "custom/shutdown",
-      "custom/filler"
-    ]
-  },
-  "custom/icon": {
-    "format": "󰣇",
-    "tooltip": false
-  },
-  "custom/empty": {
-    "format": " ",
-    "tooltip": false
-  },
-  "custom/filler": {
-    "format": "|",
-    "tooltip": false
-  },
-  "custom/logout": {
-    "format": "",
-    "tooltip-format": "Logout",
-    "on-click": "~/.config/waybar/scripts/power.sh logout"
-  },
-  "custom/shutdown": {
-    "format": "",
-    "tooltip-format": "Shutdown",
-    "on-click": "~/.config/waybar/scripts/power.sh poweroff"
-  },
-  "custom/reboot": {
-    "format": "",
-    "tooltip-format": "Reboot",
-    "on-click": "~/.config/waybar/scripts/power.sh reboot"
-  },
-  "custom/lock": {
-    "format": "",
-    "tooltip-format": "Lock Screen",
-    "on-click": "hyprlock"
-  },
-
-  "idle_inhibitor": {
-    "tooltip": true,
-    "tooltip-format-activated": "Idle_inhibitor active",
-    "tooltip-format-deactivated": "Idle_inhibitor not active",
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "󰒳",
-      "deactivated": "󰒲"
-    }
-  },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "performance": "󰓅",
-      "balanced": "󰾅",
-      "power-saver": "󰾆"
-    }
   },
 
   /* System Update Indecator Modul*/
