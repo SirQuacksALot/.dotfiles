@@ -1,0 +1,78 @@
+configuration {
+    show-icons: true;
+}
+
+* {
+    bg:     #161616;
+    bg-alt: #1e1e1e;
+    fg:     #C6C6C6;
+    fg-dim: #555555;
+    accent: rgba(137, 91, 244, 100%);
+}
+
+window {
+    location:         center;
+    anchor:           center;
+    fullscreen:       false;
+    width:            900px;
+    border:           0;
+    border-radius:    25px;
+    background-color: @bg;
+    cursor:           "default";
+}
+
+mainbox {
+    spacing:          0;
+    padding:          0px;
+    background-color: transparent;
+    children:         [ "listview" ];
+}
+
+listview {
+    columns:          3;
+    lines:            1;
+    cycle:            false;
+    scrollbar:        false;
+    spacing:          0px;
+    background-color: transparent;
+    fixed-columns:    true;
+    fixed-height:     true;
+    flow:             horizontal;
+}
+
+element {
+    padding:          0px;
+    border-radius:    0px;
+    background-color: transparent;
+    cursor:           pointer;
+    orientation:      vertical;
+    spacing:          0;
+    border:           0px solid;
+    border-color:     transparent;
+}
+
+element-icon {
+    size:             300px;
+    border-radius:    0px;
+    background-color: transparent;
+    cursor:           inherit;
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    expand:           true;
+}
+
+element-text {
+    enabled:          false;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    border-color:     transparent;
+}
+
+element selected.normal {
+    background-color: transparent;
+    border:           0px 0px 2px 0px solid;
+    border-color:     @accent;
+}
