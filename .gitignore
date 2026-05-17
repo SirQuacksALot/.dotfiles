@@ -12,6 +12,8 @@
 !waybar/**
 !dunst/
 !dunst/**
+!swaync/
+!swaync/**
 !fastfetch/
 !fastfetch/**
 
