@@ -5,7 +5,6 @@ theme="$HOME/.config/rofi/powermenu.rasi"
 lock="󰌾"
 logout="󰍃"
 suspend="󰒲"
-hibernate="󰴻"
 reboot="󰜉"
 shutdown="󰐥"
 yes="󰄬"
@@ -32,7 +31,7 @@ confirm_run() {
     [[ "$(echo -e "$yes\n$no" | confirm_cmd)" == "$yes" ]] && $@
 }
 
-selected=$(echo -e "$lock\n$logout\n$suspend\n$hibernate\n$reboot\n$shutdown" | rofi_cmd)
+selected=$(echo -e "$lock\n$logout\n$suspend\n$reboot\n$shutdown" | rofi_cmd)
 
 export HYPRLAND_INSTANCE_SIGNATURE=$(
     for dir in "$XDG_RUNTIME_DIR/hypr/"/*/; do
@@ -45,9 +44,8 @@ export HYPRLAND_INSTANCE_SIGNATURE=$(
 
 case "$selected" in
     "$lock")      hyprlock ;;
-    "$logout")    confirm_run hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Logging out...' --post-cmd 'uwsm stop'\")" ;;
-    "$suspend")   confirm_run systemctl suspend ;;
-    "$hibernate") confirm_run systemctl hibernate ;;
-    "$reboot")    confirm_run hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Rebooting...' --post-cmd 'systemctl reboot'\")" ;;
-    "$shutdown")  confirm_run hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'\")" ;;
+    "$logout")    hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Logging out...' --post-cmd 'uwsm stop'\")" ;;
+    "$suspend")   systemctl suspend ;;
+    "$reboot")    hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Rebooting...' --post-cmd 'systemctl reboot'\")" ;;
+    "$shutdown")  hyprctl dispatch "hl.dsp.exec_cmd(\"hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl poweroff'\")" ;;
 esac
