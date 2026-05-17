@@ -29,7 +29,8 @@ hl.config({
         sensitivity  = 0,  -- -1.0 to 1.0, 0 = no modification
 
         touchpad = {
-            natural_scroll = true
+            natural_scroll  = true,
+            drag_lock       = true,   -- double-tap then drag; drag persists after finger lift
         }
     }
 })
@@ -37,6 +38,7 @@ hl.config({
 -- 3-finger swipe: native scroll_move for the scrolling layout
 -- Tracks 1:1 with finger movement (synchronous), unlike layoutmsg which fires on release
 hl.gesture({ fingers = 3, direction = "horizontal", action = "scroll_move" })
+hl.gesture({ fingers = 4, direction = "horizontal", action = "workspace" })
 
 -- Per-device overrides
 hl.device({
