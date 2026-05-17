@@ -1,0 +1,81 @@
+configuration {
+    show-icons: false;
+}
+
+* {
+    bg:     #161616;
+    bg-alt: #1e1e1e;
+    fg:     #C6C6C6;
+    fg-dim: #555555;
+    accent: rgba(137, 91, 244, 100%);
+    red:    #BF616A;
+}
+
+window {
+    location:         west;
+    anchor:           west;
+    fullscreen:       false;
+    width:            46px;
+    x-offset:         10px;
+    y-offset:         0px;
+    border:           0;
+    border-radius:    50px;
+    background-color: @bg;
+    cursor:           "default";
+}
+
+mainbox {
+    spacing:          5px;
+    padding:          6px;
+    background-color: transparent;
+    children:         [ "listview" ];
+}
+
+listview {
+    columns:          1;
+    lines:            6;
+    cycle:            true;
+    scrollbar:        false;
+    spacing:          4px;
+    background-color: transparent;
+    fixed-columns:    true;
+}
+
+element {
+    padding:          10px 6px;
+    border-radius:    50px;
+    background-color: transparent;
+    text-color:       @fg-dim;
+    cursor:           pointer;
+    orientation:      vertical;
+}
+
+element-text {
+    font:             "JetBrainsMono Nerd Font 11";
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.45;
+    horizontal-align: 0.5;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg-dim;
+}
+
+element selected.normal {
+    background-color: rgba(137, 91, 244, 25%);
+    text-color:       @fg;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color: transparent;
+    text-color:       @red;
+}
+
+element selected.urgent {
+    background-color: rgba(191, 97, 106, 25%);
+    text-color:       @red;
+}
