@@ -30,3 +30,21 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+hl.layer_rule({
+    name      = "rofi-animation",
+    match     = { namespace = "rofi" },
+    animation = "popin 80%",
+})
+
+hl.layer_rule({
+    name      = "swaync-control-center",
+    match     = { namespace = "swaync-control-center" },
+    animation = "slide right",
+})
+
+hl.layer_rule({
+    name      = "swaync-notifications",
+    match     = { namespace = "swaync-notification" },
+    animation = "slide right",
+})
