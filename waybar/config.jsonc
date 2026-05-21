@@ -179,7 +179,7 @@
     "scroll-step": 5,
     "max-volume": 100,
     "format": "{icon}",
-    "format-mute": "",
+    "format-muted": " ",
     "format-icons": [
       "",
       "",
