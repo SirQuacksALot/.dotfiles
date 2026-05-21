@@ -39,6 +39,7 @@ require("modules.window_rules")
 
 require("modules.special_workspaces.vesktop")
 require("modules.special_workspaces.zen_browser")
+require("modules.special_workspaces.obsidian")
 
 -- -----------------------------------------------------------
 -- Monitor configuration (system-specific)
